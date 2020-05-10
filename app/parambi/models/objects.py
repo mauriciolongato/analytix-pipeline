@@ -6,11 +6,11 @@ class RegistroHeader(models.Model):
     cod_registro = 1
     """
     cod_registro = models.IntegerField()
-    num_relatorio = models.IntegerField()
+    num_relatorio = models.BigIntegerField()
     dt_emissao = models.IntegerField()
-    cod_ean_comprado = models.IntegerField()
-    cod_ean_fornecedor = models.IntegerField()
-    cod_ean_local_venda = models.IntegerField()
+    cod_ean_comprado = models.BigIntegerField()
+    cod_ean_fornecedor = models.BigIntegerField()
+    cod_ean_local_venda = models.BigIntegerField()
     des_local_venda = models.CharField(max_length=50)
     bandeira_loja = models.CharField(max_length=5)
     filler = models.CharField(max_length=100)
@@ -24,8 +24,8 @@ class RegistroDetalhe(models.Model):
     cod_registro = 2
     """
     cod_registro = models.IntegerField()
-    num_relatorio = models.IntegerField()
-    cod_produto = models.IntegerField()
+    num_relatorio = models.BigIntegerField()
+    cod_produto = models.BigIntegerField()
     des_produto = models.CharField(max_length=100)
     tip_cod_produto = models.CharField(max_length=5)
     qt_vendida = models.FloatField()
