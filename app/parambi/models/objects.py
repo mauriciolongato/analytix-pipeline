@@ -11,9 +11,9 @@ class RegistroHeader(models.Model):
     cod_ean_comprado = models.BigIntegerField()
     cod_ean_fornecedor = models.BigIntegerField()
     cod_ean_local_venda = models.BigIntegerField()
-    des_local_venda = models.CharField(max_length=50, blamk=True)
-    bandeira_loja = models.CharField(max_length=5, blamk=True)
-    filler = models.CharField(max_length=100, blamk=True)
+    des_local_venda = models.CharField(max_length=50, blank=True)
+    bandeira_loja = models.CharField(max_length=5, blank=True)
+    filler = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
        return self.num_relatorio + ' - ' + self.bandeira_loja + ' - ' + self.des_local_venda
@@ -26,14 +26,14 @@ class RegistroDetalhe(models.Model):
     cod_registro = models.IntegerField()
     num_relatorio = models.BigIntegerField()
     cod_produto = models.BigIntegerField()
-    des_produto = models.CharField(max_length=100, blamk=True)
-    tip_cod_produto = models.CharField(max_length=5, blamk=True)
+    des_produto = models.CharField(max_length=100, blank=True)
+    tip_cod_produto = models.CharField(max_length=5, blank=True)
     qt_vendida = models.FloatField()
-    un_medida = models.CharField(max_length=5, blamk=True)
+    un_medida = models.CharField(max_length=5, blank=True)
     dt_hora_inicio_periodo_venda = models.IntegerField()
     dt_hora_fim_periodo_venda = models.IntegerField()
     qt_entrada = models.IntegerField()
-    filler = models.CharField(max_length=5, blamk=True)
+    filler = models.CharField(max_length=5, blank=True)
 
     def __str__(self):
        return self.num_relatorio + ' - ' + self.des_produto
