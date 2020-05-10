@@ -1,6 +1,8 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 from .models.objects import RegistroHeader, RegistroDetalhe
 from .serializers import RegistroHeaderSerializer, RegistroDetalheSerializer
@@ -47,3 +49,10 @@ def registrodetalhe_list(request):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+@csrf_exempt
+def truncate_tables(request):
+    RegistroDetalhe.objects.all().delete()
+    RegistroHeader.objects.all().delete()
+
+    return JsonResponse({'status': 'ok'}, safe=False)
