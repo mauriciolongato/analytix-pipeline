@@ -144,6 +144,7 @@ ADMIN_REORDER = (
     # VENDAS
     {'app': 'parambi', 'label': 'GPA Vendas',
      'models': ('parambi.RegistroHeader',
-                'parambi.RegistroDetalhe')
+                'parambi.RegistroDetalhe',
+                'parambi.Arquivo')
      },
 )
