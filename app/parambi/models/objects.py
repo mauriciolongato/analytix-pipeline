@@ -16,7 +16,7 @@ class RegistroHeader(models.Model):
     filler = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
-       return self.num_relatorio + ' - ' + self.bandeira_loja + ' - ' + self.des_local_venda
+       return str(self.num_relatorio) + ' - ' + self.bandeira_loja + ' - ' + self.des_local_venda
 
 
 class RegistroDetalhe(models.Model):
@@ -36,7 +36,7 @@ class RegistroDetalhe(models.Model):
     filler = models.CharField(max_length=5, blank=True)
 
     def __str__(self):
-       return self.num_relatorio + ' - ' + self.des_produto
+       return str(self.num_relatorio) + ' - ' + self.des_produto
 
 
 # ARQUIVOS
