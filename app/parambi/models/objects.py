@@ -30,8 +30,8 @@ class RegistroDetalhe(models.Model):
     tip_cod_produto = models.CharField(max_length=5, blank=True)
     qt_vendida = models.FloatField()
     un_medida = models.CharField(max_length=5, blank=True)
-    dt_hora_inicio_periodo_venda = models.IntegerField()
-    dt_hora_fim_periodo_venda = models.IntegerField()
+    dt_hora_inicio_periodo_venda = models.BigIntegerField()
+    dt_hora_fim_periodo_venda = models.BigIntegerField()
     qt_entrada = models.IntegerField()
     filler = models.CharField(max_length=5, blank=True)
 
