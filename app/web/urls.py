@@ -18,10 +18,14 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
+from .routers import router
+from rest_framework.authtoken import views
 
 
 urlpatterns = [
-    path('', admin.site.urls),
-    url(r'^api/', include('parambi.urls')),
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('api-token-auth/', views.obtain_auth_token, name='api-token-auth'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

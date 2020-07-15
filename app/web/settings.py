@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admin_reorder',
     'parambi',
+    'simulation',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +77,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'web.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication'
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -128,7 +138,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
@@ -146,5 +155,10 @@ ADMIN_REORDER = (
      'models': ('parambi.RegistroHeader',
                 'parambi.RegistroDetalhe',
                 'parambi.Arquivo')
+     },
+    {'app': 'simulation', 'label': 'Projeções',
+     'models': ('simulation.Simulation',
+                'simulation.SimulationData',
+                'simulation.Arquivo')
      },
 )
